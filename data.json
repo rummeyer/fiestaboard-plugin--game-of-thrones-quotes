@@ -1,0 +1,1161 @@
+{
+  "houses": {
+    "baelish": {
+      "name": "House Baelish of Harrenhal"
+    },
+    "baratheon": {
+      "name": "House Baratheon of King's Landing"
+    },
+    "bolton": {
+      "name": "House Bolton of the Dreadfort"
+    },
+    "clegane": {
+      "name": "House Clegane of Clegane's Keep"
+    },
+    "frey": {
+      "name": "House Frey of the Crossing"
+    },
+    "greyjoy": {
+      "name": "House Greyjoy of Pyke"
+    },
+    "lannister": {
+      "name": "House Lannister of Casterly Rock"
+    },
+    "martell": {
+      "name": "House Martell of Sunspear"
+    },
+    "mormont": {
+      "name": "House Mormont of Bear Island"
+    },
+    "reed": {
+      "name": "House Reed of Greywater Watch"
+    },
+    "stark": {
+      "name": "House Stark of Winterfell"
+    },
+    "targaryen": {
+      "name": "House Targaryen of King's Landing"
+    },
+    "tarly": {
+      "name": "House Tarly of Horn Hill"
+    },
+    "tarth": {
+      "name": "House Tarth of Evenfall Hall"
+    },
+    "tully": {
+      "name": "House Tully of Riverrun"
+    },
+    "tyrell": {
+      "name": "House Tyrell of Highgarden"
+    }
+  },
+  "characters": {
+    "aemon": {
+      "name": "Aemon Targaryen",
+      "short_names": [
+        "Aemon"
+      ],
+      "house": "targaryen"
+    },
+    "aerys": {
+      "name": "Aerys II Targaryen",
+      "short_names": [
+        "The Mad King"
+      ],
+      "house": "targaryen"
+    },
+    "alliser": {
+      "name": "Alliser Thorne",
+      "short_names": [
+        "Alliser"
+      ],
+      "house": null
+    },
+    "arya": {
+      "name": "Arya Stark",
+      "short_names": [
+        "Arya"
+      ],
+      "house": "stark"
+    },
+    "baelish": {
+      "name": "Petyr Baelish",
+      "short_names": [
+        "Littlefinger"
+      ],
+      "house": "baelish"
+    },
+    "bran": {
+      "name": "Bran Stark",
+      "short_names": [
+        "Bran"
+      ],
+      "house": "stark"
+    },
+    "brienne": {
+      "name": "Brienne of Tarth",
+      "short_names": [
+        "Brienne"
+      ],
+      "house": "tarth"
+    },
+    "bronn": {
+      "name": "Bronn",
+      "short_names": [],
+      "house": null
+    },
+    "brynden": {
+      "name": "Brynden Tully",
+      "short_names": [
+        "Blackfish"
+      ],
+      "house": "tully"
+    },
+    "catelyn": {
+      "name": "Catelyn Stark",
+      "short_names": [
+        "Catelyn"
+      ],
+      "house": "stark"
+    },
+    "cersei": {
+      "name": "Cersei Lannister",
+      "short_names": [
+        "Cersei"
+      ],
+      "house": "lannister"
+    },
+    "daario": {
+      "name": "Daario Naharis",
+      "short_names": [
+        "Daario"
+      ],
+      "house": null
+    },
+    "daenerys": {
+      "name": "Daenerys Targaryen",
+      "short_names": [
+        "Daenerys"
+      ],
+      "house": "targaryen"
+    },
+    "davos": {
+      "name": "Davos Seaworth",
+      "short_names": [
+        "Davos"
+      ],
+      "house": null
+    },
+    "gared": {
+      "name": "Gared",
+      "short_names": [],
+      "house": null
+    },
+    "hodor": {
+      "name": "Hodor",
+      "short_names": [],
+      "house": null
+    },
+    "jaime": {
+      "name": "Jaime Lannister",
+      "short_names": [
+        "Jaime"
+      ],
+      "house": "lannister"
+    },
+    "jaqen": {
+      "name": "Jaqen H'ghar",
+      "short_names": [
+        "Jaqen"
+      ],
+      "house": null
+    },
+    "jeor": {
+      "name": "Jeor Mormont",
+      "short_names": [
+        "Jeor"
+      ],
+      "house": "mormont"
+    },
+    "joffrey": {
+      "name": "Joffrey Baratheon",
+      "short_names": [
+        "Joffrey"
+      ],
+      "house": "baratheon"
+    },
+    "jojen": {
+      "name": "Jojen Reed",
+      "short_names": [
+        "Jojen"
+      ],
+      "house": "reed"
+    },
+    "jon": {
+      "name": "Jon Snow",
+      "short_names": [
+        "Jon"
+      ],
+      "house": "stark"
+    },
+    "jorah": {
+      "name": "Jorah Mormont",
+      "short_names": [
+        "Jorah"
+      ],
+      "house": "mormont"
+    },
+    "lyanna": {
+      "name": "Lyanna Mormont",
+      "short_names": [
+        "Lyanna"
+      ],
+      "house": "mormont"
+    },
+    "mance": {
+      "name": "Mance Rayder",
+      "short_names": [
+        "Mance"
+      ],
+      "house": null
+    },
+    "melisandre": {
+      "name": "Melisandre",
+      "short_names": [],
+      "house": null
+    },
+    "ned": {
+      "name": "Eddard Stark",
+      "short_names": [
+        "Ned Stark",
+        "Ned"
+      ],
+      "house": "stark"
+    },
+    "nights_watch": {
+      "name": "The Night's Watch",
+      "short_names": [
+        "Night's Watch"
+      ],
+      "house": null
+    },
+    "oberyn": {
+      "name": "Oberyn Martell",
+      "short_names": [
+        "Oberyn"
+      ],
+      "house": "martell"
+    },
+    "olenna": {
+      "name": "Olenna Tyrell",
+      "short_names": [
+        "Olenna"
+      ],
+      "house": "tyrell"
+    },
+    "orell": {
+      "name": "Orell",
+      "short_names": [],
+      "house": null
+    },
+    "qyburn": {
+      "name": "Qyburn",
+      "short_names": [],
+      "house": null
+    },
+    "ramsay": {
+      "name": "Ramsay Bolton",
+      "short_names": [
+        "Ramsay"
+      ],
+      "house": "bolton"
+    },
+    "robb": {
+      "name": "Robb Stark",
+      "short_names": [
+        "Robb"
+      ],
+      "house": "stark"
+    },
+    "robert": {
+      "name": "Robert Baratheon",
+      "short_names": [
+        "Robert"
+      ],
+      "house": "baratheon"
+    },
+    "roose": {
+      "name": "Roose Bolton",
+      "short_names": [
+        "Roose"
+      ],
+      "house": "bolton"
+    },
+    "samwell": {
+      "name": "Samwell Tarly",
+      "short_names": [
+        "Samwell"
+      ],
+      "house": "tarly"
+    },
+    "sandor": {
+      "name": "Sandor Clegane",
+      "short_names": [
+        "The Hound"
+      ],
+      "house": "clegane"
+    },
+    "sansa": {
+      "name": "Sansa Stark",
+      "short_names": [
+        "Sansa"
+      ],
+      "house": "stark"
+    },
+    "syrio": {
+      "name": "Syrio Forel",
+      "short_names": [
+        "Syrio"
+      ],
+      "house": null
+    },
+    "theon": {
+      "name": "Theon Greyjoy",
+      "short_names": [
+        "Theon"
+      ],
+      "house": "greyjoy"
+    },
+    "tormund": {
+      "name": "Tormund",
+      "short_names": [],
+      "house": null
+    },
+    "tyrion": {
+      "name": "Tyrion Lannister",
+      "short_names": [
+        "Tyrion"
+      ],
+      "house": "lannister"
+    },
+    "tywin": {
+      "name": "Tywin Lannister",
+      "short_names": [
+        "Tywin"
+      ],
+      "house": "lannister"
+    },
+    "unella": {
+      "name": "Septa Unella",
+      "short_names": [
+        "Unella"
+      ],
+      "house": null
+    },
+    "varys": {
+      "name": "Lord Varys",
+      "short_names": [
+        "Varys"
+      ],
+      "house": null
+    },
+    "walder": {
+      "name": "Walder Frey",
+      "short_names": [
+        "Walder"
+      ],
+      "house": "frey"
+    },
+    "ygritte": {
+      "name": "Ygritte",
+      "short_names": [],
+      "house": null
+    }
+  },
+  "quotes": [
+    {
+      "character": "aemon",
+      "text": "We are only human, and the gods have fashioned us for love. That is our great glory, and our great tragedy."
+    },
+    {
+      "character": "aerys",
+      "text": "Burn them all!"
+    },
+    {
+      "character": "alliser",
+      "text": "For the Watch."
+    },
+    {
+      "character": "arya",
+      "text": "A girl is Arya Stark of Winterfell. And I'm going home."
+    },
+    {
+      "character": "arya",
+      "text": "Fear cuts deeper than swords."
+    },
+    {
+      "character": "arya",
+      "text": "Leave one wolf alive and the sheep are never safe."
+    },
+    {
+      "character": "arya",
+      "text": "Nothing isn't better or worse than anything. Nothing is just nothing."
+    },
+    {
+      "character": "arya",
+      "text": "When people ask you what happened here, tell them the North remembers. Tell them winter came for House Frey."
+    },
+    {
+      "character": "bran",
+      "text": "Can a man still be brave if he's afraid? That is the only time a man can be brave."
+    },
+    {
+      "character": "bran",
+      "text": "We don't have time for all this. The Night King has your dragon. He's one of them now. The Wall has fallen. The dead march south."
+    },
+    {
+      "character": "brienne",
+      "text": "All I ever wanted was to fight for a lord I believed in. But the good lords are dead and the rest are monsters."
+    },
+    {
+      "character": "brienne",
+      "text": "All my life men like you have sneered at me, and all my life I've been knocking men like you into the dust."
+    },
+    {
+      "character": "brienne",
+      "text": "I will shield your back and keep your counsel, and give my life for yours if need be."
+    },
+    {
+      "character": "bronn",
+      "text": "There's no cure for being a cunt."
+    },
+    {
+      "character": "brynden",
+      "text": "I've seen wet shits I like better than Walder Frey."
+    },
+    {
+      "character": "catelyn",
+      "text": "All this horror that has come to my family, it's all because I couldn't love a motherless child."
+    },
+    {
+      "character": "catelyn",
+      "text": "I prayed to the gods: \"Take him away. Make him die.\""
+    },
+    {
+      "character": "catelyn",
+      "text": "Laughter is poison to fear."
+    },
+    {
+      "character": "cersei",
+      "text": "I don't care about checking my worst impulses. I don't care about making the world a better place. Hang the world."
+    },
+    {
+      "character": "cersei",
+      "text": "I don't choose sides. I'm the queen of the Seven Kingdoms."
+    },
+    {
+      "character": "cersei",
+      "text": "I want our baby to live. Don't let me die, Jaime. Please don't let me die."
+    },
+    {
+      "character": "cersei",
+      "text": "If you ever call me sister again, I'll have you strangled in your sleep."
+    },
+    {
+      "character": "cersei",
+      "text": "If you want a whore, buy one. If you want a Queen, earn her."
+    },
+    {
+      "character": "cersei",
+      "text": "Power is power."
+    },
+    {
+      "character": "cersei",
+      "text": "Tears aren't a woman's only weapon. The best one's between your legs."
+    },
+    {
+      "character": "cersei",
+      "text": "The gods have no mercy. That's why they're gods."
+    },
+    {
+      "character": "cersei",
+      "text": "The more people you love, the weaker you are."
+    },
+    {
+      "character": "cersei",
+      "text": "The only way to keep your people loyal is to make certain they fear you more than they do the enemy."
+    },
+    {
+      "character": "cersei",
+      "text": "When you play the game of thrones, you win or you die."
+    },
+    {
+      "character": "cersei",
+      "text": "You love your children. It's why you'll never win."
+    },
+    {
+      "character": "daario",
+      "text": "You understood fear once long ago, but you've forgotten what it means. Someone who's forgotten fear, has forgotten how to hide."
+    },
+    {
+      "character": "daenerys",
+      "text": "A dragon is not a slave."
+    },
+    {
+      "character": "daenerys",
+      "text": "All men must die, but we are not men."
+    },
+    {
+      "character": "daenerys",
+      "text": "Dracarys!"
+    },
+    {
+      "character": "daenerys",
+      "text": "He was no dragon. Fire cannot kill a dragon."
+    },
+    {
+      "character": "daenerys",
+      "text": "I am Daenerys Stormborn of the Blood of Old Valyria, and I will take what is mine. With fire and blood I will take it."
+    },
+    {
+      "character": "daenerys",
+      "text": "I am Khaleesi of the Dothraki. I am the wife of the great Khal, and I carry his son inside me. The next time you raise a hand to me will be the last time you have hands."
+    },
+    {
+      "character": "daenerys",
+      "text": "I am the dragon's daughter, and I swear to you that those who would harm you will die screaming."
+    },
+    {
+      "character": "daenerys",
+      "text": "I will do what queens do. I will rule."
+    },
+    {
+      "character": "daenerys",
+      "text": "I will take what is mine, with fire and blood!"
+    },
+    {
+      "character": "daenerys",
+      "text": "Lannister, Targaryen, Baratheon, Stark, Tyrell... they're all just spokes on a wheel. This one's on top, then that one's on top, and on and on it spins, crushing those on the ground."
+    },
+    {
+      "character": "daenerys",
+      "text": "Turn us away, and we will burn you first."
+    },
+    {
+      "character": "daenerys",
+      "text": "Which war was won without deceit and mass murder?"
+    },
+    {
+      "character": "davos",
+      "text": "I may not know the north, but I know men. They're more or less the same in any corner of the world and even the bravest of them don't want to see their wives and children skinned for a lost cause."
+    },
+    {
+      "character": "davos",
+      "text": "I think mothers and fathers made up the gods because they wanted their children to sleep through the night."
+    },
+    {
+      "character": "davos",
+      "text": "If they're half as ferocious as their lady, the Boltons are doomed."
+    },
+    {
+      "character": "davos",
+      "text": "Nothing fucks you harder than time."
+    },
+    {
+      "character": "ned",
+      "text": "A madman sees what he sees."
+    },
+    {
+      "character": "ned",
+      "text": "A ruler who hides behind paid executioners soon forgets what death is."
+    },
+    {
+      "character": "ned",
+      "text": "I grew up with soldiers. I learned how to die a long time ago."
+    },
+    {
+      "character": "ned",
+      "text": "I, Eddard of the house Stark, lord of Winterfell and warden of the North, sentence you to die."
+    },
+    {
+      "character": "ned",
+      "text": "Some old wounds never truly heal, and bleed again at the slightest word."
+    },
+    {
+      "character": "ned",
+      "text": "The man who passes the sentence should swing the sword."
+    },
+    {
+      "character": "ned",
+      "text": "When the snows fall and the white winds blow, the lone wolf dies, but the pack survives."
+    },
+    {
+      "character": "ned",
+      "text": "Winter is coming!"
+    },
+    {
+      "character": "gared",
+      "text": "But the real enemy is the cold."
+    },
+    {
+      "character": "gared",
+      "text": "It burns, it does. Nothing burns like the cold. But only for a while. Then it gets inside you and starts to fill you up, and after a while you don't have the strength to fight it. It's easier just to sit down or go to sleep."
+    },
+    {
+      "character": "gared",
+      "text": "It steals up on you quieter than Will, and at first you shiver and your teeth chatter and you stamp your feet and dream of mulled wine and nice hot fires."
+    },
+    {
+      "character": "gared",
+      "text": "It was the cold. I saw men freeze last winter, and the one before, when I was half a boy."
+    },
+    {
+      "character": "gared",
+      "text": "They say you don't feel any pain toward the end. First you go weak and drowsy, and everything starts to fade, and then it's like sinking into a sea of warm milk. Peaceful, like."
+    },
+    {
+      "character": "gared",
+      "text": "We should start back. The wildlings are dead."
+    },
+    {
+      "character": "hodor",
+      "text": "Hold the door."
+    },
+    {
+      "character": "jaime",
+      "text": "By what right does the wolf judge the lion?"
+    },
+    {
+      "character": "jaime",
+      "text": "Fighting bravely for a losing cause is admirable. Fighting for a winning cause is far more rewarding."
+    },
+    {
+      "character": "jaime",
+      "text": "Jaime... my name's Jaime."
+    },
+    {
+      "character": "jaime",
+      "text": "The things I do for love."
+    },
+    {
+      "character": "jaime",
+      "text": "There are no men like me. Only me."
+    },
+    {
+      "character": "jaime",
+      "text": "Three victories don't make you a conqueror."
+    },
+    {
+      "character": "jaime",
+      "text": "We don't get to choose whom we love."
+    },
+    {
+      "character": "jaqen",
+      "text": "A girl gives a man his own name?"
+    },
+    {
+      "character": "jaqen",
+      "text": "If the day comes when you must find me again, just give that coin to any man from Braavos and say these words to him: \"Valar morghulis.\""
+    },
+    {
+      "character": "jeor",
+      "text": "The things we love destroy us every time, lad. Remember that."
+    },
+    {
+      "character": "jeor",
+      "text": "When dead men and worse come hunting, you think it matters who sits on the Iron Throne?"
+    },
+    {
+      "character": "jeor",
+      "text": "You want to lead one day? Then learn how to follow."
+    },
+    {
+      "character": "joffrey",
+      "text": "Everyone is mine to torment."
+    },
+    {
+      "character": "joffrey",
+      "text": "Say what you will about the Targaryens, they were conquerors."
+    },
+    {
+      "character": "jojen",
+      "text": "A reader lives a thousand lives before he dies. The man who never reads lives only one."
+    },
+    {
+      "character": "jon",
+      "text": "Everything before the word \"but\" is horseshit."
+    },
+    {
+      "character": "jon",
+      "text": "I swore a vow to the Night's Watch. If I don't take my own word seriously, what sort of \"Lord of Winterfell\" would I be?"
+    },
+    {
+      "character": "jon",
+      "text": "If I fall, don't bring me back."
+    },
+    {
+      "character": "jon",
+      "text": "Love is the death of duty."
+    },
+    {
+      "character": "jon",
+      "text": "Some men want whores on the eve of battle, and some want gods."
+    },
+    {
+      "character": "jon",
+      "text": "Stick 'em with the pointy end."
+    },
+    {
+      "character": "jon",
+      "text": "The White Walkers don't care if a man's free folk or crow. We're all the same to them, meat for their army. But together we can beat them."
+    },
+    {
+      "character": "jon",
+      "text": "The war is not over. And I promise you, friend, the true enemy won't wait out the storm. He brings the storm."
+    },
+    {
+      "character": "jon",
+      "text": "There is only one war that matters. The Great War. And it is here."
+    },
+    {
+      "character": "jon",
+      "text": "Thousands of men don't need to die. Only one of us. Let's end this the old way. You against me."
+    },
+    {
+      "character": "jorah",
+      "text": "There is a beast in every man, and it stirs when you put a sword in his hand."
+    },
+    {
+      "character": "varys",
+      "text": "In a room sit three great men: a king, a priest, and a rich man. Between them stands a common sellsword. Each great man bids the sellsword slay the other two. Who lives, who dies?"
+    },
+    {
+      "character": "varys",
+      "text": "Power resides where men believe it resides. It's a trick, a shadow on the wall. And a very small man can cast a very large shadow."
+    },
+    {
+      "character": "varys",
+      "text": "The storms come and go, the big fish eat the little fish and I keep on paddling."
+    },
+    {
+      "character": "lyanna",
+      "text": "I don't plan on knitting by the fire while men fight for me."
+    },
+    {
+      "character": "lyanna",
+      "text": "The North remembers! We know no king but the King in the North whose name is Stark."
+    },
+    {
+      "character": "mance",
+      "text": "The freedom to make my own mistakes was all I ever wanted."
+    },
+    {
+      "character": "melisandre",
+      "text": "The night is dark and full of terrors."
+    },
+    {
+      "character": "oberyn",
+      "text": "'Tis a big and beautiful world. Most of us live and die in the same corner where we were born and never get to see any of it. I don't want to be most of us."
+    },
+    {
+      "character": "oberyn",
+      "text": "Bastards are born of passion, aren't they? We don't despise them in Dorne."
+    },
+    {
+      "character": "oberyn",
+      "text": "It is rare to meet a Lannister who shares my enthusiasm for dead Lannisters."
+    },
+    {
+      "character": "oberyn",
+      "text": "Tell your father I'm here. And tell him the Lannisters aren't the only ones who pay their debts."
+    },
+    {
+      "character": "oberyn",
+      "text": "This is not the day I die."
+    },
+    {
+      "character": "oberyn",
+      "text": "You're not a golden lion. You're just a pink little man, who is far too slow on the draw."
+    },
+    {
+      "character": "olenna",
+      "text": "He really was a cunt, wasn't he?"
+    },
+    {
+      "character": "olenna",
+      "text": "I was told you were drunk, impertinent and thoroughly debauched. You can imagine my disappointment at finding nothing but a browbeaten bookkeeper."
+    },
+    {
+      "character": "olenna",
+      "text": "The world is overflowing with horrible things, but they're all a tray of cakes next to death."
+    },
+    {
+      "character": "olenna",
+      "text": "You're a dragon. Be a dragon."
+    },
+    {
+      "character": "orell",
+      "text": "People work together when it suits them. They're loyal when it suits them. They love each other when it suits them, and they kill each other when it suits them."
+    },
+    {
+      "character": "baelish",
+      "text": "A man with no motive is a man no one suspects. Always keep your foes confused."
+    },
+    {
+      "character": "baelish",
+      "text": "Chaos isn't a pit. Chaos is a ladder."
+    },
+    {
+      "character": "baelish",
+      "text": "I have always found revenge to be the purest of motivations."
+    },
+    {
+      "character": "baelish",
+      "text": "It doesn't matter what we want. Once we get it, then we want something else."
+    },
+    {
+      "character": "baelish",
+      "text": "Money buys a man's silence for a time. A bolt in the heart buys it forever."
+    },
+    {
+      "character": "baelish",
+      "text": "My sweet, silly wife. I have only loved one woman, only one, in my entire life. Your sister."
+    },
+    {
+      "character": "baelish",
+      "text": "The fall breaks them. And some are given a chance to climb; they cling to the real or the gods or love."
+    },
+    {
+      "character": "baelish",
+      "text": "What we don't know is what usually gets us killed."
+    },
+    {
+      "character": "qyburn",
+      "text": "But sometimes before we can usher in the new, the old must be put to rest."
+    },
+    {
+      "character": "ramsay",
+      "text": "If you think this has a happy ending, you haven't been paying attention."
+    },
+    {
+      "character": "ramsay",
+      "text": "My mother taught me not to throw stones at cripples. But my father taught me: aim for their head."
+    },
+    {
+      "character": "robb",
+      "text": "All men should keep their word, kings most of all."
+    },
+    {
+      "character": "robert",
+      "text": "I'm the King, I get what I want. I never loved my brothers. Sad thing for a man to admit, but it's true. You were the brother I chose."
+    },
+    {
+      "character": "roose",
+      "text": "The Lannisters send their regards."
+    },
+    {
+      "character": "samwell",
+      "text": "He always comes back!"
+    },
+    {
+      "character": "samwell",
+      "text": "I read it in a book."
+    },
+    {
+      "character": "samwell",
+      "text": "I was nothing at all. And when you're nothing at all, there's no reason to be afraid."
+    },
+    {
+      "character": "samwell",
+      "text": "Whilst Lord Janos was hiding with the women and children, Jon Snow was leading."
+    },
+    {
+      "character": "samwell",
+      "text": "Yes, well, I suppose life is irregular."
+    },
+    {
+      "character": "sandor",
+      "text": "A hound will die for you, but never lie to you."
+    },
+    {
+      "character": "sandor",
+      "text": "Aye, there's a reason. I'm a big fucker and I'm tough to kill."
+    },
+    {
+      "character": "sandor",
+      "text": "Fuck the king."
+    },
+    {
+      "character": "sandor",
+      "text": "Hate's as good a thing as any to keep a person going. Better than most. We come across my brother, maybe we can both cross a name off our list."
+    },
+    {
+      "character": "sandor",
+      "text": "How did a mad fucker like you live this long?"
+    },
+    {
+      "character": "sandor",
+      "text": "I understand that if any more words come pouring out your cunt mouth, I'm gonna have to eat every fucking chicken in this room."
+    },
+    {
+      "character": "sandor",
+      "text": "If you can't protect yourself, die and get out of the way of those who can. Sharp steel and strong arms rule this world, don't ever believe any different."
+    },
+    {
+      "character": "sandor",
+      "text": "Seems every bad idea has some Lannister cunt behind it."
+    },
+    {
+      "character": "sandor",
+      "text": "Thoros isn't here anymore, so I hope you're not about to give a sermon. Because if you are, the Lord of Light's gonna wonder why he brought you back 19 times just to watch you die when I chuck you over this fucking wall."
+    },
+    {
+      "character": "sandor",
+      "text": "You're shit at dying, you know that?"
+    },
+    {
+      "character": "sandor",
+      "text": "Your lips are moving and you're complaining about something. That's whinging. This one's been killed six times. (points to Beric) You don't hear him bitching about it."
+    },
+    {
+      "character": "sansa",
+      "text": "I am a Stark of Winterfell, this is my home. And you can't frighten me."
+    },
+    {
+      "character": "sansa",
+      "text": "I hate the king more than any of them."
+    },
+    {
+      "character": "sansa",
+      "text": "No need to seize the last word, Lord Baelish. I'll assume it was something clever."
+    },
+    {
+      "character": "sansa",
+      "text": "Only a fool would trust Littlefinger."
+    },
+    {
+      "character": "sansa",
+      "text": "You're going to die tomorrow, Lord Bolton. Sleep well."
+    },
+    {
+      "character": "unella",
+      "text": "Shame! Shame! Shame!"
+    },
+    {
+      "character": "syrio",
+      "text": "There is only one god, and his name is Death. And there is only one thing we say to Death: \"Not today.\""
+    },
+    {
+      "character": "syrio",
+      "text": "What do we say to the god of death?"
+    },
+    {
+      "character": "nights_watch",
+      "text": "Night gathers, and now my watch begins."
+    },
+    {
+      "character": "theon",
+      "text": "It's always seemed there was an impossible choice I had to make... Stark or Greyjoy."
+    },
+    {
+      "character": "theon",
+      "text": "It's better to be cruel than weak."
+    },
+    {
+      "character": "theon",
+      "text": "My sword is yours, in victory and defeat, from this day until my last day."
+    },
+    {
+      "character": "tormund",
+      "text": "Gingers are beautiful. We've been kissed by fire."
+    },
+    {
+      "character": "tyrion",
+      "text": "A Lannister always pays his debts."
+    },
+    {
+      "character": "tyrion",
+      "text": "A ruler who kills those devoted to her is not a ruler who inspires devotion."
+    },
+    {
+      "character": "tyrion",
+      "text": "Are you afraid? Good. You're in the great game now, and the great game's terrifying. The only people who aren't afraid of failure are madmen like your father."
+    },
+    {
+      "character": "tyrion",
+      "text": "Death is so terribly final, while life is full of possibilities."
+    },
+    {
+      "character": "tyrion",
+      "text": "Drinking and lust. No man can match me in these things. I am the god of tits and wine."
+    },
+    {
+      "character": "tyrion",
+      "text": "Every dwarf is a bastard in their father's eyes."
+    },
+    {
+      "character": "tyrion",
+      "text": "Everyone who makes a joke about a dwarf's height thinks he's the only person ever to make a joke about a dwarf's height."
+    },
+    {
+      "character": "tyrion",
+      "text": "I am your son. I have always been your son."
+    },
+    {
+      "character": "tyrion",
+      "text": "I did not kill Joffrey, but I wish that I had! Watching your vicious bastard die gave me more relief than a thousand lying whores!"
+    },
+    {
+      "character": "tyrion",
+      "text": "I have a lot of experience in losing."
+    },
+    {
+      "character": "tyrion",
+      "text": "I have a tender spot in my heart for cripples, bastards and broken things."
+    },
+    {
+      "character": "tyrion",
+      "text": "I know that our enemies hate each other almost as much as they hate us."
+    },
+    {
+      "character": "tyrion",
+      "text": "I wish I was the monster you think I am! I wish I had enough poison for the whole pack of you! I would gladly give my life to watch you all swallow it!"
+    },
+    {
+      "character": "tyrion",
+      "text": "I'm a constant disappointment to my own father, and I have learned to live with it."
+    },
+    {
+      "character": "tyrion",
+      "text": "I'm a monster, as well as a dwarf. You should charge me double."
+    },
+    {
+      "character": "tyrion",
+      "text": "I'm guilty of being a dwarf."
+    },
+    {
+      "character": "tyrion",
+      "text": "It's hard to put a leash on a dog once you've put a crown on its head."
+    },
+    {
+      "character": "tyrion",
+      "text": "It's not easy being drunk all the time. Everyone would do it, if it were easy."
+    },
+    {
+      "character": "tyrion",
+      "text": "Love is more powerful than reason. We all know that."
+    },
+    {
+      "character": "tyrion",
+      "text": "Many underestimated you. Most of them are dead now."
+    },
+    {
+      "character": "tyrion",
+      "text": "Never forget what you are. The rest of the world will not. Wear it like armour, and it can never be used to hurt you."
+    },
+    {
+      "character": "tyrion",
+      "text": "No matter who you are, no matter how strong you are, sooner or later, you'll face circumstances beyond your control."
+    },
+    {
+      "character": "tyrion",
+      "text": "Oh, monster? Perhaps you should speak to me more softly then. Monsters are dangerous, and just now kings are dying like flies."
+    },
+    {
+      "character": "tyrion",
+      "text": "People often claim to hunger for truth, but seldom like the taste when it's served up."
+    },
+    {
+      "character": "tyrion",
+      "text": "Please don't eat the help!"
+    },
+    {
+      "character": "tyrion",
+      "text": "That bit of theatre will haunt our family for a generation."
+    },
+    {
+      "character": "tyrion",
+      "text": "That's what I do: I drink and I know things."
+    },
+    {
+      "character": "tyrion",
+      "text": "The Mad King did as he liked. Has your Uncle Jaime ever told you what happened to him?"
+    },
+    {
+      "character": "tyrion",
+      "text": "The day will come when you think you are safe and happy, and your joy will turn to ashes in your mouth."
+    },
+    {
+      "character": "tyrion",
+      "text": "The powerful have always preyed on the powerless. That's how they became powerful in the first place."
+    },
+    {
+      "character": "tyrion",
+      "text": "Well, my brother has his sword, and I have my mind, and a mind needs books like a sword needs a whetstone, if it's to keep its edge."
+    },
+    {
+      "character": "tyrion",
+      "text": "When you tear out a man's tongue, you are not proving him a liar, you're only telling the world that you fear what he might say."
+    },
+    {
+      "character": "tyrion",
+      "text": "Why is it that when one man builds a wall, the next man immediately needs to know what's on the other side?"
+    },
+    {
+      "character": "tyrion",
+      "text": "You love your children. It's your one redeeming quality. That and your cheekbones."
+    },
+    {
+      "character": "tywin",
+      "text": "A lion does not concern himself with the opinion of sheep."
+    },
+    {
+      "character": "tywin",
+      "text": "Any man who must say 'I am the King' is no true King."
+    },
+    {
+      "character": "tywin",
+      "text": "He's a Lannister! Maybe the lowest of the Lannisters, but he's one of us. And every day that he remains a prisoner, the less our name commands respect."
+    },
+    {
+      "character": "tywin",
+      "text": "I need you to become the man you were always meant to be. Not next year, not tomorrow, now."
+    },
+    {
+      "character": "tywin",
+      "text": "I would let myself be consumed by maggots before mocking the family name and making you heir to Casterly Rock."
+    },
+    {
+      "character": "tywin",
+      "text": "If another house can seize one of our own and hold him captive with impunity, we are no longer a house to be feared."
+    },
+    {
+      "character": "tywin",
+      "text": "It's the family name that lives on. It's all that lives on."
+    },
+    {
+      "character": "tywin",
+      "text": "You are being counseled at this very moment."
+    },
+    {
+      "character": "tywin",
+      "text": "You're no son of mine."
+    },
+    {
+      "character": "walder",
+      "text": "The Freys and the Lannisters send their regards."
+    },
+    {
+      "character": "ygritte",
+      "text": "Every man must die, Jon Snow. But first, he must live."
+    },
+    {
+      "character": "ygritte",
+      "text": "You know nothing, Jon Snow."
+    },
+    {
+      "character": "ygritte",
+      "text": "You're mine. Mine, as I'm yours. And if we die, we die. All men must die, Jon Snow. But first we'll live."
+    }
+  ]
+}

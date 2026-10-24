@@ -1,0 +1,228 @@
+{
+  "id": "game_of_thrones_quotes",
+  "name": "Game of Thrones Quotes",
+  "version": "1.0.0",
+  "description": "A Game of Thrones quote on every refresh, word-wrapped and centered with the character who said it underneath — only quotes that fit the board, so a Note gets the short ones and a Flagship the long ones too. Optionally only from the characters or houses you choose. 196 quotes from 48 characters, shipped with the plugin — nothing to download, no API key.",
+  "author": "Oliver Rummeyer",
+  "repository": "https://github.com/rummeyer/fiestaboard-plugin--game-of-thrones-quotes",
+  "documentation": "README.md",
+  "icon": "crown",
+  "category": "entertainment",
+  "fiestaboard_version": ">=8.25.0",
+  "min_refresh_seconds": 60,
+  "settings_schema": {
+    "type": "object",
+    "properties": {
+      "enabled": {
+        "type": "boolean",
+        "title": "Enabled",
+        "default": false
+      },
+      "characters": {
+        "type": "array",
+        "title": "Characters",
+        "description": "Optional. Only quotes by these characters. Leave empty for any quote.",
+        "items": {
+          "type": "string"
+        },
+        "default": [],
+        "ui:widget": "remote-options",
+        "ui:options": {
+          "options_id": "characters",
+          "multiple": true,
+          "cache_seconds": 3600,
+          "placeholder": "Any character"
+        }
+      },
+      "houses": {
+        "type": "array",
+        "title": "Houses",
+        "description": "Optional. Only quotes by members of these houses. Combined with characters, each quote is by one of the chosen characters or from one of the chosen houses.",
+        "items": {
+          "type": "string"
+        },
+        "default": [],
+        "ui:widget": "remote-options",
+        "ui:options": {
+          "options_id": "houses",
+          "multiple": true,
+          "cache_seconds": 3600,
+          "placeholder": "Any house"
+        }
+      },
+      "show_character": {
+        "type": "boolean",
+        "title": "Show character",
+        "description": "Sign the quote with the character's name, shortened to the first name when the full name does not fit. Left off when there is no row for it.",
+        "default": true
+      },
+      "skip_crude": {
+        "type": "boolean",
+        "title": "Skip crude language",
+        "description": "Leave out the handful of quotes with swearing in them, most of them the Hound's.",
+        "default": false
+      },
+      "alignment": {
+        "type": "string",
+        "title": "Alignment",
+        "description": "Centered puts the name centered underneath; left-aligned puts it flush right.",
+        "enum": [
+          "center",
+          "left"
+        ],
+        "enumNames": [
+          "Centered",
+          "Left-aligned"
+        ],
+        "default": "center"
+      },
+      "refresh_seconds": {
+        "type": "integer",
+        "title": "Refresh Interval",
+        "description": "How long a quote stays on the board before the next one.",
+        "default": 3600,
+        "minimum": 60,
+        "maximum": 86400
+      }
+    }
+  },
+  "variables": {
+    "groups": {
+      "quote": {
+        "label": "Quote"
+      },
+      "layout": {
+        "label": "Board Lines"
+      }
+    },
+    "simple": {
+      "quote": {
+        "description": "The quote as board text, unwrapped",
+        "type": "string",
+        "max_length": 500,
+        "group": "quote",
+        "example": "WINTER IS COMING!"
+      },
+      "character": {
+        "description": "The full name of the character who said it",
+        "type": "string",
+        "max_length": 60,
+        "group": "quote",
+        "example": "EDDARD STARK"
+      },
+      "house": {
+        "description": "The character's house, empty for those without one",
+        "type": "string",
+        "max_length": 60,
+        "group": "quote",
+        "example": "HOUSE STARK OF WINTERFELL"
+      },
+      "block": {
+        "description": "The whole laid-out board as one value, rows separated by newlines. Put this on the first template line to fill the board.",
+        "type": "string",
+        "max_length": 400,
+        "group": "layout",
+        "example": "   WINTER IS   \\n    COMING!    \\n- EDDARD STARK "
+      },
+      "line1": {
+        "description": "Board row 1 of the layout",
+        "type": "string",
+        "max_length": 60,
+        "group": "layout",
+        "example": "   WINTER IS   "
+      },
+      "line2": {
+        "description": "Board row 2 of the layout",
+        "type": "string",
+        "max_length": 60,
+        "group": "layout",
+        "example": "    COMING!    "
+      },
+      "line3": {
+        "description": "Board row 3 of the layout",
+        "type": "string",
+        "max_length": 60,
+        "group": "layout",
+        "example": "- EDDARD STARK "
+      },
+      "line4": {
+        "description": "Board row 4 of the layout, empty on a Note",
+        "type": "string",
+        "max_length": 60,
+        "group": "layout",
+        "example": ""
+      },
+      "line5": {
+        "description": "Board row 5 of the layout, empty on a Note",
+        "type": "string",
+        "max_length": 60,
+        "group": "layout",
+        "example": ""
+      },
+      "line6": {
+        "description": "Board row 6 of the layout, empty on a Note",
+        "type": "string",
+        "max_length": 60,
+        "group": "layout",
+        "example": ""
+      }
+    }
+  },
+  "max_lengths": {
+    "quote": 500,
+    "character": 60,
+    "house": 60,
+    "block": 400,
+    "line1": 60,
+    "line2": 60,
+    "line3": 60,
+    "line4": 60,
+    "line5": 60,
+    "line6": 60
+  },
+  "demo": {
+    "name": "Game of Thrones Quotes Demo",
+    "device_type": "note",
+    "template": [
+      "{{game_of_thrones_quotes.block}}",
+      "",
+      ""
+    ],
+    "line_metadata": [
+      {
+        "alignment": "left",
+        "wrap": false
+      },
+      {
+        "alignment": "left",
+        "wrap": false
+      },
+      {
+        "alignment": "left",
+        "wrap": false
+      }
+    ]
+  },
+  "teaser": "WINTER IS",
+  "previews": [
+    {
+      "device_type": "note",
+      "rows": [
+        "   WINTER IS   ",
+        "    COMING!    ",
+        "- EDDARD STARK "
+      ]
+    },
+    {
+      "device_type": "flagship",
+      "rows": [
+        "   A LION DOES NOT    ",
+        " CONCERN HIMSELF WITH ",
+        "THE OPINION OF SHEEP. ",
+        "                      ",
+        "  - TYWIN LANNISTER   ",
+        "                      "
+      ]
+    }
+  ]
+}
