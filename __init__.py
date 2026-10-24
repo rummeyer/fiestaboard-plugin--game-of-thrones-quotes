@@ -4,7 +4,7 @@ Puts a quote from the Game of Thrones TV show on the board, word-wrapped and
 centered, with the character who said it underneath. A new one on every
 refresh, optionally only from the characters or houses you choose.
 
-The quotes ship with the plugin in data.json: 196 of them from 48 characters,
+The quotes ship with the plugin in quotes.json: 196 of them from 48 characters,
 each character with their house and the shorter names they go by. Only quotes
 that fit the board are picked: a Note gets the short ones, a Flagship the long
 ones too.
@@ -33,7 +33,7 @@ from src.plugins.base import (
 
 logger = logging.getLogger(__name__)
 
-DATA_FILE = pathlib.Path(__file__).resolve().with_name("data.json")
+QUOTES_FILE = pathlib.Path(__file__).resolve().with_name("quotes.json")
 
 # Quotes shown lately, across every board this process renders. When every
 # quote that fits has been shown lately — a Note fits only a few dozen — the
@@ -47,6 +47,11 @@ FALLBACK_HEIGHT = 6
 
 ALIGNMENTS = ("center", "left")
 DEFAULT_ALIGNMENT = "center"
+
+# When the quote is signed with the character's name: when there is a row for
+# it, always (only quotes with room for it are picked), or never.
+NAME_MODES = ("fits", "always", "never")
+DEFAULT_NAME_MODE = "fits"
 
 # Characters the board can flap. Anything else is dropped rather than sent as a
 # wrong tile. Reference: src/board_chars.py in FiestaBoard.
@@ -85,7 +90,7 @@ FULL = 2  # fits, name included (or the name is turned off)
 
 
 class QuotesError(Exception):
-    """data.json could not be read, or holds no usable quote."""
+    """quotes.json could not be read, or holds no usable quote."""
 
 
 @dataclass(frozen=True)
@@ -120,6 +125,22 @@ class Placement:
 def _choice(value: Any, choices: tuple[str, ...], default: str) -> str:
     """*value* if it is one of *choices*, otherwise *default*."""
     return value if value in choices else default
+
+
+def name_mode(config: dict[str, Any]) -> str:
+    """The Character name setting.
+
+    Before 1.3.0 this was two switches, Show character and Only quotes with
+    room for the name; a config saved with them still means what it meant.
+    """
+    mode = config.get("character_name")
+    if mode in NAME_MODES:
+        return mode
+    if config.get("show_character") is False:
+        return "never"
+    if config.get("signed_only") is True:
+        return "always"
+    return DEFAULT_NAME_MODE
 
 
 def parse_keys(value: Any) -> list[str] | None:
@@ -179,19 +200,19 @@ def parse_collection(body: dict[str, Any]) -> list[Quote]:
             )
         )
     if not quotes:
-        raise QuotesError("data.json holds no quotes")
+        raise QuotesError("quotes.json holds no quotes")
     return quotes
 
 
 @functools.cache
 def load_quotes() -> list[Quote]:
-    """The quotes in data.json, read once and shared by every board."""
+    """The quotes in quotes.json, read once and shared by every board."""
     try:
-        body = json.loads(DATA_FILE.read_text(encoding="utf-8"))
+        body = json.loads(QUOTES_FILE.read_text(encoding="utf-8"))
     except (OSError, ValueError) as error:
-        raise QuotesError(f"data.json could not be read: {error}") from error
+        raise QuotesError(f"quotes.json could not be read: {error}") from error
     if not isinstance(body, dict):
-        raise QuotesError("data.json is not a JSON object")
+        raise QuotesError("quotes.json is not a JSON object")
     return parse_collection(body)
 
 
@@ -272,7 +293,7 @@ def wrap(text: str, width: int) -> list[str]:
 def name_variants(name: str, short_names: tuple[str, ...] = ()) -> list[str]:
     """The character's name, then the shorter names they go by, longest first.
 
-    The short names come from data.json, because no rule gets them right:
+    The short names come from quotes.json, because no rule gets them right:
     Tyrion Lannister is "Tyrion", not "Lannister", which would not tell him
     from Cersei; Eddard Stark is "Ned Stark", then "Ned"; Sandor Clegane is
     "The Hound".
@@ -408,7 +429,7 @@ class GameOfThronesQuotesPlugin(PluginBase):
         board = self.board
         width = board.width if board else FALLBACK_WIDTH
         height = board.height if board else FALLBACK_HEIGHT
-        show_name = self.config.get("show_character", True) is not False
+        mode = name_mode(self.config)
         alignment = _choice(self.config.get("alignment"), ALIGNMENTS, DEFAULT_ALIGNMENT)
 
         try:
@@ -422,9 +443,8 @@ class GameOfThronesQuotesPlugin(PluginBase):
         if not quotes:
             return PluginResult(available=False, error="No quotes by the chosen characters or houses")
 
-        signed_only = self.config.get("signed_only", False) is True
         quote, placement = choose(
-            quotes, width, height, show_name=show_name, alignment=alignment, signed_only=signed_only
+            quotes, width, height, show_name=mode != "never", alignment=alignment, signed_only=mode == "always"
         )
         remember_shown(quote)
         lines = placement.rows
@@ -448,7 +468,7 @@ class GameOfThronesQuotesPlugin(PluginBase):
         return PluginResult(available=True, data=data, formatted_lines=lines)
 
     def get_options(self, request: OptionsRequest) -> OptionsResult | list[Option]:
-        """The character and house pickers, from data.json.
+        """The character and house pickers, from quotes.json.
 
         Each option says how many quotes it brings; typing filters by any part
         of the name.

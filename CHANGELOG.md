@@ -9,6 +9,17 @@ the two drift apart.
 
 ## [Unreleased]
 
+## [1.3.0] — 2026-10-24
+
+### Changed
+
+- **Show character** and **Only quotes with room for the name** are one
+  setting now, **Character name**: *When it fits* (the default, as before),
+  *Always* (only quotes with room for the name) or *Never*. The two switches
+  could be set so that the second did nothing. A config saved with them keeps
+  its meaning.
+- The quotes file is called `quotes.json` now, not `data.json`.
+
 ## [1.2.0] — 2026-10-24
 
 ### Added

@@ -4,7 +4,7 @@ Runs the shared FiestaBoard conformance suite (``src/plugins/
 geometry_conformance.py`` in core -- importable here because core is on
 ``PYTHONPATH`` in plugin CI) across every board shape the platform supports,
 including note arrays up to 120x24 and FiestaPanel grids. The quotes are the
-real data.json; nothing touches the network.
+real quotes.json; nothing touches the network.
 
 ``strict_growth`` is intentionally omitted: the layout shows one quote, not a
 list, so a taller board is not expected to carry more of it.
@@ -18,7 +18,7 @@ from plugins.game_of_thrones_quotes import GameOfThronesQuotesPlugin
 from .conftest import MANIFEST
 
 
-@pytest.mark.parametrize("config", [{}, {"alignment": "left", "show_character": False}])
+@pytest.mark.parametrize("config", [{}, {"alignment": "left", "character_name": "never"}, {"character_name": "always"}])
 def test_renders_on_every_board_shape(config):
     def make_plugin() -> GameOfThronesQuotesPlugin:
         plugin = GameOfThronesQuotesPlugin(MANIFEST)

@@ -17,7 +17,9 @@ from plugins.game_of_thrones_quotes import (
     ALIGNMENTS,
     CHARACTER_MAX,
     DEFAULT_ALIGNMENT,
+    DEFAULT_NAME_MODE,
     HOUSE_MAX,
+    NAME_MODES,
     QUOTE_MAX,
     GameOfThronesQuotesPlugin,
 )
@@ -57,15 +59,16 @@ class TestIdentity:
 
 class TestSettingsSchema:
     def test_enum_options_match_the_code(self, manifest):
-        assert tuple(manifest["settings_schema"]["properties"]["alignment"]["enum"]) == ALIGNMENTS
+        properties = manifest["settings_schema"]["properties"]
+        assert tuple(properties["alignment"]["enum"]) == ALIGNMENTS
+        assert tuple(properties["character_name"]["enum"]) == NAME_MODES
 
     def test_schema_defaults_match_the_code_fallbacks(self, manifest, make_plugin, source):
         """A board configured purely from defaults must render what the form shows."""
         properties = manifest["settings_schema"]["properties"]
         assert properties["alignment"]["default"] == DEFAULT_ALIGNMENT
-        assert properties["show_character"]["default"] is True
+        assert properties["character_name"]["default"] == DEFAULT_NAME_MODE
         assert properties["skip_crude"]["default"] is False
-        assert properties["signed_only"]["default"] is False
         assert properties["characters"]["default"] == []
         assert properties["houses"]["default"] == []
 

@@ -271,8 +271,8 @@ class TestCollection:
 
 @pytest.fixture(scope="module")
 def body():
-    """The real data.json."""
-    return json.loads(got.DATA_FILE.read_text(encoding="utf-8"))
+    """The real quotes.json."""
+    return json.loads(got.QUOTES_FILE.read_text(encoding="utf-8"))
 
 
 @pytest.fixture(scope="module")
@@ -327,9 +327,9 @@ class TestDataFile:
         assert signed >= 20
 
     def test_the_file_is_read_once(self, monkeypatch, tmp_path):
-        path = tmp_path / "data.json"
+        path = tmp_path / "quotes.json"
         path.write_text(json.dumps(collection(DOOR)))
-        monkeypatch.setattr(got, "DATA_FILE", path)
+        monkeypatch.setattr(got, "QUOTES_FILE", path)
         got.load_quotes.cache_clear()
         try:
             assert [quote.text for quote in got.load_quotes()] == [DOOR["text"]]
@@ -342,10 +342,10 @@ class TestDataFile:
         ("content", "message"), [(None, "could not be read"), ("{", "could not be read"), ("[]", "not a JSON object")]
     )
     def test_an_unreadable_file_is_an_error(self, monkeypatch, tmp_path, content, message):
-        path = tmp_path / "data.json"
+        path = tmp_path / "quotes.json"
         if content is not None:
             path.write_text(content)
-        monkeypatch.setattr(got, "DATA_FILE", path)
+        monkeypatch.setattr(got, "QUOTES_FILE", path)
         got.load_quotes.cache_clear()
         try:
             with pytest.raises(QuotesError, match=message):
@@ -381,7 +381,7 @@ class TestRendering:
 
     def test_the_name_can_be_turned_off(self, make_plugin, source):
         source.body = collection(WINTER)
-        assert render(make_plugin(show_character=False), NOTE).formatted_lines == [
+        assert render(make_plugin(character_name="never"), NOTE).formatted_lines == [
             "   WINTER IS   ",
             "    COMING!    ",
             "               ",
@@ -397,15 +397,30 @@ class TestRendering:
         seen = {render(plugin, NOTE).data["character"] for _ in range(60)}
         assert seen == {"HODOR", "SANDOR CLEGANE"}
 
-    def test_only_signed_quotes_can_be_asked_for(self, make_plugin):
-        plugin = make_plugin(signed_only=True)
+    def test_always_signed_picks_only_quotes_with_room_for_the_name(self, make_plugin):
+        plugin = make_plugin(character_name="always")
         rows = [render(plugin, NOTE).formatted_lines for _ in range(40)]
         assert all(lines[-1].strip().startswith("- ") for lines in rows)
 
-    def test_signed_only_does_nothing_while_the_name_is_off(self, make_plugin):
-        plugin = make_plugin(signed_only=True, show_character=False)
+    def test_when_it_fits_also_picks_quotes_without_room_for_the_name(self, make_plugin):
+        plugin = make_plugin(character_name="fits")
         seen = {render(plugin, NOTE).data["quote"] for _ in range(100)}
         assert to_board_text(DRINK["text"]) in seen
+
+    @pytest.mark.parametrize(
+        ("config", "mode"),
+        [
+            ({}, "fits"),
+            ({"character_name": "always"}, "always"),
+            ({"character_name": "loud"}, "fits"),
+            ({"show_character": False}, "never"),
+            ({"signed_only": True}, "always"),
+            ({"show_character": False, "signed_only": True}, "never"),
+            ({"character_name": "fits", "show_character": False}, "fits"),
+        ],
+    )
+    def test_the_name_setting_reads_configs_saved_before_it(self, config, mode):
+        assert got.name_mode(config) == mode
 
     def test_crude_quotes_can_be_skipped(self, make_plugin, source):
         source.body = collection(KING, DOOR)

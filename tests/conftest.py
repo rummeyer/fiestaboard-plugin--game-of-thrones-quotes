@@ -1,6 +1,6 @@
 """Shared fixtures for the Game of Thrones Quotes plugin tests.
 
-The plugin tests run on a small hand-built collection in data.json's shape,
+The plugin tests run on a small hand-built collection in quotes.json's shape,
 not on the real file, so a change to the quotes never breaks a test of the
 layout. The real file has tests of its own.
 """
@@ -68,7 +68,7 @@ def collection(*quotes, houses=None, characters=None):
 
 
 class FakeData:
-    """Stands in for data.json: *body* is what the file holds, or the error reading it raises."""
+    """Stands in for quotes.json: *body* is what the file holds, or the error reading it raises."""
 
     def __init__(self):
         self.body = collection(*QUOTES)
