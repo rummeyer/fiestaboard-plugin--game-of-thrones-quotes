@@ -28,6 +28,13 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 BOARD_SHAPES = {"flagship": (6, 22), "note": (3, 15)}
 
 
+def board_for(preview):
+    """The board a manifest preview is drawn for."""
+    if preview["device_type"] == "note_array":
+        return BoardContext(device_type="note_array", rows=preview["notes_tall"] * 3, cols=preview["notes_wide"] * 15)
+    return BoardContext.from_device_type(preview["device_type"])
+
+
 @pytest.fixture(scope="module")
 def manifest():
     return json.loads((ROOT / "manifest.json").read_text())
@@ -62,8 +69,8 @@ class TestSettingsSchema:
         assert properties["houses"]["default"] == []
 
         defaults = {name: prop["default"] for name, prop in properties.items() if "default" in prop}
-        for device_type, entry in PREVIEW_QUOTES.items():
-            source.body = collection(entry)
+        for device_type in BOARD_SHAPES:
+            source.body = collection(PREVIEW_QUOTES[device_type])
             board = BoardContext.from_device_type(device_type)
             assert (
                 make_plugin(**defaults).get_data(board).formatted_lines == make_plugin().get_data(board).formatted_lines
@@ -124,34 +131,42 @@ class TestVariables:
                 for name, limit in manifest["max_lengths"].items():
                     assert len(data[name]) <= limit, f"{name} on a {device_type} is {len(data[name])} long"
 
-    def test_the_demo_fills_the_board_from_the_block(self, manifest):
-        demo = manifest["demo"]
-        assert demo["template"][0] == f"{{{{{manifest['id']}.block}}}}"
-        rows, _ = BOARD_SHAPES[demo["device_type"]]
-        assert len(demo["template"]) == len(demo["line_metadata"]) == rows
+    def test_each_demo_fills_its_board_from_the_block(self, manifest):
+        assert set(manifest["demo"]) == set(BOARD_SHAPES)
+        for device_type, demo in manifest["demo"].items():
+            rows, _ = BOARD_SHAPES[device_type]
+            assert demo["template"][0] == f"{{{{{manifest['id']}.block}}}}"
+            assert demo["template"][1:] == [""] * (rows - 1)
+            assert len(demo["line_metadata"]) == rows
+            assert all(line == {"alignment": "left", "wrap": False} for line in demo["line_metadata"])
 
 
 class TestBoardPreviews:
     def test_teaser_fits_the_narrowest_board(self, manifest):
         assert len(manifest["teaser"]) <= 15
 
-    def test_preview_rows_fit_their_board(self, manifest):
+    def test_preview_rows_fill_their_board(self, manifest):
         for preview in manifest["previews"]:
-            rows, cols = BOARD_SHAPES[preview["device_type"]]
-            assert len(preview["rows"]) <= rows
-            for row in preview["rows"]:
-                assert len(row) <= cols, f"{preview['device_type']} row is too wide"
+            board = board_for(preview)
+            assert len(preview["rows"]) == board.rows
+            assert all(len(row) == board.cols for row in preview["rows"]), preview["device_type"]
 
-    def test_both_board_shapes_are_covered(self, manifest):
-        assert {p["device_type"] for p in manifest["previews"]} == set(BOARD_SHAPES)
+    def test_both_board_shapes_and_a_note_array_are_covered(self, manifest):
+        assert {p["device_type"] for p in manifest["previews"]} == {*BOARD_SHAPES, "note_array"}
 
-    @pytest.mark.parametrize("device_type", sorted(BOARD_SHAPES))
+    @pytest.mark.parametrize("device_type", [*sorted(BOARD_SHAPES), "note_array"])
     def test_previews_match_what_the_plugin_actually_renders(self, manifest, device_type, make_plugin, source):
         """A hand-edited preview that no longer matches the code misleads the directory."""
         source.body = collection(PREVIEW_QUOTES[device_type])
-        rendered = make_plugin().get_data(BoardContext.from_device_type(device_type)).formatted_lines
-        declared = next(p["rows"] for p in manifest["previews"] if p["device_type"] == device_type)
-        assert declared == rendered
+        preview = next(p for p in manifest["previews"] if p["device_type"] == device_type)
+        assert preview["rows"] == make_plugin().get_data(board_for(preview)).formatted_lines
+
+    def test_every_screenshot_exists_and_one_is_primary(self, manifest):
+        screenshots = manifest["screenshots"]
+        assert sum(1 for shot in screenshots if shot.get("primary")) == 1
+        for shot in screenshots:
+            assert (ROOT / shot["src"]).is_file(), shot["src"]
+            assert shot["alt"] and shot["caption"]
 
     def test_the_long_preview_quote_is_flagship_only(self, make_plugin, source):
         """The Flagship preview shows what a Note never gets."""

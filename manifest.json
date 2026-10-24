@@ -1,7 +1,7 @@
 {
   "id": "game_of_thrones_quotes",
   "name": "Game of Thrones Quotes",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A Game of Thrones quote on every refresh, word-wrapped and centered with the character who said it underneath — only quotes that fit the board, so a Note gets the short ones and a Flagship the long ones too. Optionally only from the characters or houses you choose. 196 quotes from 48 characters, shipped with the plugin — nothing to download, no API key.",
   "author": "Oliver Rummeyer",
   "repository": "https://github.com/rummeyer/fiestaboard-plugin--game-of-thrones-quotes",
@@ -120,49 +120,49 @@
       "block": {
         "description": "The whole laid-out board as one value, rows separated by newlines. Put this on the first template line to fill the board.",
         "type": "string",
-        "max_length": 400,
+        "max_length": 12383,
         "group": "layout",
         "example": "   WINTER IS   \\n    COMING!    \\n- EDDARD STARK "
       },
       "line1": {
         "description": "Board row 1 of the layout",
         "type": "string",
-        "max_length": 60,
+        "max_length": 128,
         "group": "layout",
         "example": "   WINTER IS   "
       },
       "line2": {
         "description": "Board row 2 of the layout",
         "type": "string",
-        "max_length": 60,
+        "max_length": 128,
         "group": "layout",
         "example": "    COMING!    "
       },
       "line3": {
         "description": "Board row 3 of the layout",
         "type": "string",
-        "max_length": 60,
+        "max_length": 128,
         "group": "layout",
         "example": "- EDDARD STARK "
       },
       "line4": {
         "description": "Board row 4 of the layout, empty on a Note",
         "type": "string",
-        "max_length": 60,
+        "max_length": 128,
         "group": "layout",
         "example": ""
       },
       "line5": {
         "description": "Board row 5 of the layout, empty on a Note",
         "type": "string",
-        "max_length": 60,
+        "max_length": 128,
         "group": "layout",
         "example": ""
       },
       "line6": {
         "description": "Board row 6 of the layout, empty on a Note",
         "type": "string",
-        "max_length": 60,
+        "max_length": 128,
         "group": "layout",
         "example": ""
       }
@@ -172,36 +172,74 @@
     "quote": 500,
     "character": 60,
     "house": 60,
-    "block": 400,
-    "line1": 60,
-    "line2": 60,
-    "line3": 60,
-    "line4": 60,
-    "line5": 60,
-    "line6": 60
+    "block": 12383,
+    "line1": 128,
+    "line2": 128,
+    "line3": 128,
+    "line4": 128,
+    "line5": 128,
+    "line6": 128
   },
   "demo": {
-    "name": "Game of Thrones Quotes Demo",
-    "device_type": "note",
-    "template": [
-      "{{game_of_thrones_quotes.block}}",
-      "",
-      ""
-    ],
-    "line_metadata": [
-      {
-        "alignment": "left",
-        "wrap": false
-      },
-      {
-        "alignment": "left",
-        "wrap": false
-      },
-      {
-        "alignment": "left",
-        "wrap": false
-      }
-    ]
+    "flagship": {
+      "name": "Game of Thrones Quotes Demo",
+      "template": [
+        "{{game_of_thrones_quotes.block}}",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "line_metadata": [
+        {
+          "alignment": "left",
+          "wrap": false
+        },
+        {
+          "alignment": "left",
+          "wrap": false
+        },
+        {
+          "alignment": "left",
+          "wrap": false
+        },
+        {
+          "alignment": "left",
+          "wrap": false
+        },
+        {
+          "alignment": "left",
+          "wrap": false
+        },
+        {
+          "alignment": "left",
+          "wrap": false
+        }
+      ]
+    },
+    "note": {
+      "name": "Game of Thrones Quotes Demo",
+      "template": [
+        "{{game_of_thrones_quotes.block}}",
+        "",
+        ""
+      ],
+      "line_metadata": [
+        {
+          "alignment": "left",
+          "wrap": false
+        },
+        {
+          "alignment": "left",
+          "wrap": false
+        },
+        {
+          "alignment": "left",
+          "wrap": false
+        }
+      ]
+    }
   },
   "teaser": "WINTER IS",
   "previews": [
@@ -223,6 +261,37 @@
         "  - TYWIN LANNISTER   ",
         "                      "
       ]
+    },
+    {
+      "device_type": "note_array",
+      "notes_wide": 2,
+      "notes_tall": 2,
+      "rows": [
+        "                              ",
+        "THE NIGHT IS DARK AND FULL OF ",
+        "           TERRORS.           ",
+        "                              ",
+        "         - MELISANDRE         ",
+        "                              "
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "docs/board-display.png",
+      "alt": "Game of Thrones Quotes on a Vestaboard Note: WINTER IS COMING! signed - EDDARD STARK",
+      "caption": "On a Note, only the short quotes",
+      "primary": true
+    },
+    {
+      "src": "docs/board-flagship.png",
+      "alt": "Game of Thrones Quotes on a Vestaboard Flagship: A LION DOES NOT CONCERN HIMSELF WITH THE OPINION OF SHEEP. signed - TYWIN LANNISTER",
+      "caption": "On a Flagship, the long ones too"
+    },
+    {
+      "src": "docs/board-array.png",
+      "alt": "Game of Thrones Quotes on a 2x2 note array: THE NIGHT IS DARK AND FULL OF TERRORS. signed - MELISANDRE",
+      "caption": "On a 2x2 note array"
     }
   ]
 }

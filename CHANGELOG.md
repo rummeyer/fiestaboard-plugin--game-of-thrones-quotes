@@ -9,6 +9,24 @@ the two drift apart.
 
 ## [Unreleased]
 
+## [1.1.0] — 2026-10-24
+
+### Added
+
+- Ready for the FiestaBoard plugin registry: a setup guide in
+  `docs/SETUP.md` and board screenshots of a Note, a Flagship and a 2x2 note
+  array, listed in the manifest.
+- A preview on a 2x2 note array, and the board-shape conformance test of
+  FiestaBoard core across every supported board.
+- The demo page for a Flagship as well as a Note.
+
+### Fixed
+
+- `{{game_of_thrones_quotes.block}}` and `line1` … `line6` declare the lengths
+  they reach on the largest boards: a row is up to 128 tiles on the widest
+  FiestaPanel grid, and `block` up to 12383. The template editor sizes its fit
+  warnings from these numbers.
+
 ## [1.0.0] — 2026-10-24
 
 ### Added

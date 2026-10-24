@@ -55,7 +55,7 @@ SPEECH = {
 QUOTES = [WINTER, LION, NIGHT, DRINK, KING, DOOR, SPEECH]
 
 # The quotes the committed previews were rendered from, one per board.
-PREVIEW_QUOTES = {"note": WINTER, "flagship": LION}
+PREVIEW_QUOTES = {"note": WINTER, "flagship": LION, "note_array": NIGHT}
 
 
 def collection(*quotes, houses=None, characters=None):
