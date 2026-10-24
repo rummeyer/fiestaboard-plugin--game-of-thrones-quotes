@@ -65,6 +65,7 @@ class TestSettingsSchema:
         assert properties["alignment"]["default"] == DEFAULT_ALIGNMENT
         assert properties["show_character"]["default"] is True
         assert properties["skip_crude"]["default"] is False
+        assert properties["signed_only"]["default"] is False
         assert properties["characters"]["default"] == []
         assert properties["houses"]["default"] == []
 

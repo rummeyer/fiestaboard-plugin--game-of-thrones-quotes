@@ -10,7 +10,7 @@ A Game of Thrones quote on the board, a new one on every refresh: word-wrapped, 
 
 Only quotes that fit the board are picked, all of them equally likely:
 
-- A **Note** (15×3) gets the short ones, 54 of the 196. Most leave no row for the name, so it is left off rather than the quote cut.
+- A **Note** (15×3) gets the short ones, 54 of the 196. Most leave no row for the name, so it is left off rather than the quote cut — or, with **Only quotes with room for the name**, only the 21 that are signed are picked.
 - A **Flagship** (22×6) gets the long ones too, 169 of them, nearly all signed.
 
 Quotes shown in the last 50 refreshes are passed over; once every quote that fits has been shown, the one shown longest ago comes next.
@@ -80,6 +80,7 @@ The quote was still chosen to fit the board on its own, so it leaves room for th
 | Characters | any | Only quotes by these characters. |
 | Houses | any | Only quotes by members of these houses. |
 | Show character | on | Sign the quote. Shortened to the name the character goes by, or left off when there is no row for it. |
+| Only quotes with room for the name | off | Skip quotes that leave no row for the name. Mostly for a Note: it then picks from 21 quotes instead of 54. Falls back to any that fits when none of the chosen characters' quotes has room. |
 | Skip crude language | off | Leave out the quotes with swearing in them, most of them the Hound's. |
 | Alignment | Centered | Centered, with the name centered below; or left-aligned, with the name flush right. |
 | Refresh interval | 3600 s | How long a quote stays up. Minimum 60 s: everything happens locally. |

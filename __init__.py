@@ -348,17 +348,22 @@ def _frame(text: list[str], name: list[str], width: int, height: int, alignment:
     return [blank] * top + rows + [blank] * (height - top - len(rows))
 
 
-def choose(quotes: list[Quote], width: int, height: int, *, show_name: bool, alignment: str) -> tuple[Quote, Placement]:
+def choose(
+    quotes: list[Quote], width: int, height: int, *, show_name: bool, alignment: str, signed_only: bool = False
+) -> tuple[Quote, Placement]:
     """A random quote that fits the board, not one shown lately.
 
     Every quote that fits is as likely as any other, whether or not its name
     fits with it — on a Note most leave no row for the name, and keeping only
-    those that do would leave a handful. When all of them were shown lately,
-    the one shown longest ago comes next. When none fits at all, the one that
-    overflows least is cut off with "...".
+    those that do would leave a few dozen. With *signed_only* that is what is
+    kept, unless none of them has room for the name; then any that fits. When
+    all of them were shown lately, the one shown longest ago comes next. When
+    none fits at all, the one that overflows least is cut off with "...".
     """
     placed = [(quote, place(quote, width, height, show_name=show_name, alignment=alignment)) for quote in quotes]
     fitting = [pair for pair in placed if pair[1].fit > OVERFLOW]
+    if signed_only:
+        fitting = [pair for pair in fitting if pair[1].fit == FULL] or fitting
     if not fitting:
         return min(placed, key=lambda pair: (pair[1].spill, len(pair[0].text)))
 
@@ -417,7 +422,10 @@ class GameOfThronesQuotesPlugin(PluginBase):
         if not quotes:
             return PluginResult(available=False, error="No quotes by the chosen characters or houses")
 
-        quote, placement = choose(quotes, width, height, show_name=show_name, alignment=alignment)
+        signed_only = self.config.get("signed_only", False) is True
+        quote, placement = choose(
+            quotes, width, height, show_name=show_name, alignment=alignment, signed_only=signed_only
+        )
         remember_shown(quote)
         lines = placement.rows
 

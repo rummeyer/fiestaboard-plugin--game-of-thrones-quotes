@@ -60,6 +60,7 @@ And like this on a Flagship:
 | Characters | any | Only quotes by these characters. |
 | Houses | any | Only quotes by members of these houses. Combined with characters, each quote is by one of the chosen characters or from one of the chosen houses. |
 | Show character | on | Sign the quote with the character's name. |
+| Only quotes with room for the name | off | Skip quotes that leave no row for the name. On a Note this leaves 21 quotes instead of 54. |
 | Skip crude language | off | Leave out the quotes with swearing in them. |
 | Alignment | Centered | Centered, with the name centered below; or left-aligned, with the name flush right. |
 | Refresh interval | 3600 s | How long a quote stays up. Minimum 60 s. |
@@ -76,4 +77,4 @@ None.
 
 **The board shows "No quotes by the chosen characters or houses".** The selection no longer matches any quote, for example after a character was renamed in an update. Open the settings and pick again.
 
-**There is no name under the quote.** On a Note most quotes take all three rows. The name is left off rather than the quote cut.
+**There is no name under the quote.** On a Note most quotes take all three rows. The name is left off rather than the quote cut. Switch on **Only quotes with room for the name** to show signed quotes only.

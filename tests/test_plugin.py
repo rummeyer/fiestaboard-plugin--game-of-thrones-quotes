@@ -191,6 +191,20 @@ class TestChoose:
         got.remember_shown(quotes[0])
         assert choose(quotes, 15, 3, show_name=True, alignment="center")[0] == quotes[1]
 
+    def test_signed_only_keeps_the_quotes_with_room_for_the_name(self):
+        quotes = parse_collection(collection(WINTER, NIGHT, DRINK, DOOR))
+        chosen = {
+            choose(quotes, 15, 3, show_name=True, alignment="center", signed_only=True)[0].text for _ in range(100)
+        }
+        assert chosen == {WINTER["text"], DOOR["text"]}
+
+    def test_signed_only_takes_any_that_fits_when_none_has_room_for_the_name(self):
+        quotes = parse_collection(collection(NIGHT, DRINK, LION))
+        chosen = {
+            choose(quotes, 15, 3, show_name=True, alignment="center", signed_only=True)[0].text for _ in range(100)
+        }
+        assert chosen == {NIGHT["text"], DRINK["text"]}
+
     def test_when_nothing_fits_the_least_overflowing_quote_is_cut_off(self):
         quotes = parse_collection(collection(SPEECH, LION))
         chosen, placement = choose(quotes, 15, 3, show_name=True, alignment="center")
@@ -308,6 +322,10 @@ class TestDataFile:
         assert fitting(15, 3) >= 50
         assert fitting(22, 6) >= 150
 
+    def test_a_note_has_enough_quotes_with_room_for_the_name(self, quotes):
+        signed = sum(place(quote, 15, 3, show_name=True, alignment="center").fit == FULL for quote in quotes)
+        assert signed >= 20
+
     def test_the_file_is_read_once(self, monkeypatch, tmp_path):
         path = tmp_path / "data.json"
         path.write_text(json.dumps(collection(DOOR)))
@@ -378,6 +396,16 @@ class TestRendering:
         plugin = make_plugin(characters=["hodor"], houses=["clegane"])
         seen = {render(plugin, NOTE).data["character"] for _ in range(60)}
         assert seen == {"HODOR", "SANDOR CLEGANE"}
+
+    def test_only_signed_quotes_can_be_asked_for(self, make_plugin):
+        plugin = make_plugin(signed_only=True)
+        rows = [render(plugin, NOTE).formatted_lines for _ in range(40)]
+        assert all(lines[-1].strip().startswith("- ") for lines in rows)
+
+    def test_signed_only_does_nothing_while_the_name_is_off(self, make_plugin):
+        plugin = make_plugin(signed_only=True, show_character=False)
+        seen = {render(plugin, NOTE).data["quote"] for _ in range(100)}
+        assert to_board_text(DRINK["text"]) in seen
 
     def test_crude_quotes_can_be_skipped(self, make_plugin, source):
         source.body = collection(KING, DOOR)

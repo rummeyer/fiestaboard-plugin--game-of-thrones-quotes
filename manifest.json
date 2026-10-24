@@ -1,7 +1,7 @@
 {
   "id": "game_of_thrones_quotes",
   "name": "Game of Thrones Quotes",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A Game of Thrones quote on every refresh, word-wrapped and centered with the character who said it underneath — only quotes that fit the board, so a Note gets the short ones and a Flagship the long ones too. Optionally only from the characters or houses you choose. 196 quotes from 48 characters, shipped with the plugin — nothing to download, no API key.",
   "author": "Oliver Rummeyer",
   "repository": "https://github.com/rummeyer/fiestaboard-plugin--game-of-thrones-quotes",
@@ -55,6 +55,12 @@
         "title": "Show character",
         "description": "Sign the quote with the character's name, shortened to the first name when the full name does not fit. Left off when there is no row for it.",
         "default": true
+      },
+      "signed_only": {
+        "type": "boolean",
+        "title": "Only quotes with room for the name",
+        "description": "Skip quotes that leave no row for the character's name. Mostly for a Note, where most quotes take all three rows: it then picks from 21 quotes instead of 54. Has no effect while Show character is off.",
+        "default": false
       },
       "skip_crude": {
         "type": "boolean",

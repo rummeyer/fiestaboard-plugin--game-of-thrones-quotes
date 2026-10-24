@@ -9,6 +9,15 @@ the two drift apart.
 
 ## [Unreleased]
 
+## [1.2.0] — 2026-10-24
+
+### Added
+
+- **Only quotes with room for the name**, off by default: skips quotes that
+  leave no row for the character's name. Mostly for a Note, where it leaves 21
+  of the 54 quotes that fit. When none of the chosen characters' or houses'
+  quotes has room for the name, any quote that fits is shown instead.
+
 ## [1.1.0] — 2026-10-24
 
 ### Added
